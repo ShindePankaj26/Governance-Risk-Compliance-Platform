@@ -25,7 +25,7 @@
 🗂 Project Structure
 
 ```
-grc-platform/
+Governance-Risk-Comliance-platform/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py                  # FastAPI app entry point
