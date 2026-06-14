@@ -1,11 +1,11 @@
-# 🛡 Integrated GRC Platform
+ 🛡 Integrated GRC Platform
 
 > **Governance, Risk & Compliance — Enterprise Suite v1.0**
 > Full-stack platform covering Risk Register, Vendor Assessment, Compliance Tracker, Audit Management, Policy Management, and AI Governance.
 
 ---
 
-## 📐 Architecture Overview
+ 📐 Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -22,7 +22,7 @@
 
 ---
 
-## 🗂 Project Structure
+🗂 Project Structure
 
 ```
 grc-platform/
@@ -88,14 +88,14 @@ grc-platform/
 
 ---
 
-## 🚀 Ubuntu Deployment (Recommended)
+🚀 Ubuntu Deployment (Recommended)
 
-### Option A — One-Command Deploy
+ Option A — One-Command Deploy
 
 ```bash
 # 1. Clone the project
-git clone https://github.com/yourname/grc-platform.git
-cd grc-platform
+git clone https://github.com/ShindePankaj26/Governance-Risk-Comliance-platform.git
+cd Governance-Risk-Comliance-platform
 
 # 2. Run the automated deployment script
 chmod +x scripts/deploy.sh
@@ -113,16 +113,16 @@ The script automatically:
 
 ---
 
-### Option B — Manual Step-by-Step
+ Option B — Manual Step-by-Step
 
-#### Step 1 — Install Ubuntu Dependencies
+ Step 1 — Install Ubuntu Dependencies
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y curl git python3 python3-pip ufw
 ```
 
-#### Step 2 — Install Docker
+ Step 2 — Install Docker
 
 ```bash
 # Add Docker's official GPG key
@@ -141,7 +141,7 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker $USER   # log out and back in after this
 ```
 
-#### Step 3 — Install Docker Compose
+ Step 3 — Install Docker Compose
 
 ```bash
 sudo curl -SL \
@@ -151,7 +151,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version  # verify
 ```
 
-#### Step 4 — Configure Firewall
+Step 4 — Configure Firewall
 
 ```bash
 sudo ufw enable
@@ -162,7 +162,7 @@ sudo ufw allow 5050/tcp    # pgAdmin (optional)
 sudo ufw reload
 ```
 
-#### Step 5 — Set Up Environment
+Step 5 — Set Up Environment
 
 ```bash
 cd grc-platform
@@ -175,7 +175,7 @@ Generate a secure SECRET_KEY:
 python3 -c "import secrets; print(secrets.token_hex(32))"
 ```
 
-#### Step 6 — Build and Start
+ Step 6 — Build and Start
 
 ```bash
 docker compose build
@@ -183,7 +183,7 @@ docker compose up -d
 docker compose ps      # verify all containers are "healthy"
 ```
 
-#### Step 7 — Seed Sample Data
+ Step 7 — Seed Sample Data
 
 ```bash
 # Wait ~30 seconds for backend to start, then:
@@ -193,7 +193,7 @@ python3 scripts/seed_data.py
 
 ---
 
-## 🌐 Access the Platform
+ 🌐 Access the Platform
 
 | Service     | URL                               | Credentials           |
 |-------------|-----------------------------------|-----------------------|
@@ -209,9 +209,9 @@ docker compose --profile tools up -d
 
 ---
 
-## 🔧 Local Development (without Docker)
+ 🔧 Local Development (without Docker)
 
-### Backend
+ Backend
 
 ```bash
 cd backend
@@ -236,7 +236,7 @@ docker run -d --name grc_db -e POSTGRES_DB=grcdb \
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Frontend
+ Frontend
 
 ```bash
 cd frontend
@@ -246,15 +246,17 @@ npm run dev     # starts on http://localhost:3000
 
 ---
 
-## 📡 API Reference
+ 📡 API Reference
 
-### Authentication
+ Authentication
+ 
 | Method | Endpoint               | Description            |
 |--------|------------------------|------------------------|
 | POST   | /api/v1/auth/register  | Register new user      |
 | POST   | /api/v1/auth/login     | Login (returns JWT)    |
 
-### Risk Register
+ Risk Register
+ 
 | Method | Endpoint              | Description            |
 |--------|-----------------------|------------------------|
 | GET    | /api/v1/risks         | List all risks         |
@@ -264,12 +266,12 @@ npm run dev     # starts on http://localhost:3000
 | DELETE | /api/v1/risks/{id}    | Delete risk            |
 | GET    | /api/v1/risks/stats/heatmap | Risk heatmap data |
 
-### Vendors, Compliance, Audits, Policies, AI Governance
+ Vendors, Compliance, Audits, Policies, AI Governance
 All follow the same RESTful pattern — see `/docs` for full schema.
 
 ---
 
-## 🐳 Docker Operations
+ 🐳 Docker Operations
 
 ```bash
 # View all container logs
@@ -303,7 +305,7 @@ docker compose build backend && docker compose up -d backend
 
 ---
 
-## 🔐 User Roles
+ 🔐 User Roles
 
 | Role     | Access Level                                        |
 |----------|-----------------------------------------------------|
@@ -316,7 +318,7 @@ docker compose build backend && docker compose up -d backend
 
 ---
 
-## 🛠 Technology Stack
+ 🛠 Technology Stack
 
 | Layer       | Technology              | Version  |
 |-------------|-------------------------|----------|
@@ -334,7 +336,7 @@ docker compose build backend && docker compose up -d backend
 
 ---
 
-## 📈 Roadmap
+ 📈 Roadmap
 
 - [ ] Power BI Embedded dashboard integration
 - [ ] Email notifications (SendGrid/SMTP)
